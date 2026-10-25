@@ -1,37 +1,21 @@
 package com.usb;
-public class PC implements USB{
-    public void poweron(){
-    }
-    public void poweroff(){
-    }
-    public void PCmouse(USB usb){
-
-        usb.poweron();
-    }
-    public void PCmicrophone(USB usb){
-
-        usb.poweron();
-    }
-    public void PCKeyboard(USB usb){
-
-        usb.poweron();
-    }
-    public void PCmo(USB usb){
-
-        usb.poweroff();
-    }
-    public void PCmi(USB usb){
-
-        usb.poweroff();
-    }
-    public void PCk(USB usb){
-
-        usb.poweroff();
-    }
-    public void PCclose(){
-        System.out.println("电脑关机成功");
+import java.util.ArrayList;
+import java.util.List;
+public class PC{
+    List<USB> usbList=new ArrayList<>();
+    public void insertUSB(USB usb){
+        usbList.add(usb);
     }
     public void PCopen(){
+        for(USB usb:usbList){
+            usb.poweron();
+        }
         System.out.println("电脑开机成功");
+    }
+    public void PCclose(){
+        for(USB usb:usbList){
+            usb.poweroff();
+        }
+        System.out.println("电脑关机成功");
     }
 }
