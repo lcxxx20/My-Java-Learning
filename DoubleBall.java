@@ -10,7 +10,7 @@ public class DoubleBall {
         Print(p);
         System.out.println("请输入你购买的双色球号：（前四个数1-33，最后一个数1-16）");
         int[] P = new int[5];
-        SC(P);
+        inputNumbers(P);
         System.out.println("你购买的双色球号是：");
         Print(P);
         int countred = comparered(P, p);
@@ -18,41 +18,7 @@ public class DoubleBall {
         prize(countred, countblue);
     }
 
-    /*private static void SC(int[] p) {                //输入
-        Scanner sc = new Scanner(System.in);
-        System.out.println("请输入红球号：（1-33）");
-        for (int i = 0; i < p.length - 1; ) {
-            int x = sc.nextInt();
-            if (x < 1 || x > 33) {
-                System.out.println("超出范围，重新输入：");
-            } else {
-                for (int j = 0; j <= i + 1; ) {
-                    if (x == p[j]) {
-                        System.out.println("输入重复，请重新输入：");
-                        break;
-                    } else {
-                        if (j != i) j++;
-                        else {
-                            p[i] = x;
-                            i++;
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-        System.out.println("请输入蓝球号：（1-16）");
-        for (int i = 0; i < 1; ) {
-            int x = sc.nextInt();
-            if (x < 1 || x > 16) {
-                System.out.println("超出范围，重新输入：");
-            } else {
-                p[p.length - 1] = x;
-                i++;
-            }
-        }
-    }*/
-    private static void SC(int[] p){                            //输入
+    private static void inputNumbers(int[] p){                            //输入
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<p.length-1;){
             System.out.println("请输入你购买的第"+(i+1)+"个红球号（1-33）");
@@ -60,7 +26,7 @@ public class DoubleBall {
             if(x<1||x>33){
                 System.out.println("超出范围，请重新输入！");
             }else{
-                if(Bool(p,x)){
+                if(isExist(p,x)){
                     p[i]=x;
                     i++;
                 }else{
@@ -126,7 +92,7 @@ public class DoubleBall {
         }
         return countblue;
     }
-    private static boolean Bool(int[] p,int x){             //作为查重的函数
+    private static boolean isExist(int[] p,int x){             //作为查重的函数
         boolean y=true;
         for (int j : p) {
             if (j == x) {
