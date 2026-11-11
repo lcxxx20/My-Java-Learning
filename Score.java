@@ -1,7 +1,5 @@
 package com.lc;
-
 import java.util.Scanner;
-
 public class Score {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -26,7 +24,6 @@ public class Score {
         double ave = average(d1);
         System.out.println("评委的平均分是：" + ave);
     }
-
     private static double highest(double[] d) {
         double max = d[0];
         for (int i = 1; i < d.length; i++) {
@@ -58,7 +55,6 @@ public class Score {
         }
         return d;
     }
-
     private static double average(double[] d) {
         double sum = d[0];
         for (int i = 1; i < d.length; i++) {
